@@ -285,4 +285,103 @@ Scope.prototype.$destroy = function(){
     this.$$watchers = null;
 };
 
+//watching collections
+Scope.prototype.$watchCollection = function(watchFn, listenerFn){
+    var self = this;
+    var oldValue, newValue;
+    var oldLength; //old object's length
+    var veryOldValue; //keep track of the old value instead of being identical to new value
+    var trackVeryOldValue = (listenerFn.length > 1); //whether we need to keep the very old value
+    var firstRun = true;
+    var changeCount = 0;
+    var internalWatchFn = function(scope) {
+        newValue = watchFn(scope);
+        var newLength; //new object's length
+        //check for changes
+        if (_.isObject(newValue)) {
+            if (isArrayLike(newValue)) {
+                if (!_.isArray(oldValue)) {
+                    changeCount++;
+                    oldValue = [];
+                }
+                if (newValue.length !== oldValue.length) {
+                    changeCount++;
+                    oldValue.length = newValue.length;
+                }
+                _.forEach(newValue, function (newItem, i) {
+                    var bothNaN = _.isNaN(newItem) && _.isNaN(oldValue[i]); //both values are NaN
+                    if (!bothNaN && newItem !== oldValue[i]) {
+                        changeCount++;
+                        oldValue[i] = newItem;
+                    }
+                });
+            } else {
+                if (!_.isObject(oldValue) || isArrayLike(oldValue)){
+                    changeCount++;
+                    oldValue = {};
+                    oldLength = 0;
+                }
+                newLength = 0;
+                _.forOwn(newValue, function(newVal, key){
+                    newLength++;
+                    if (oldValue.hasOwnProperty(key)){
+                        var bothNaN = _.isNaN(oldValue[key]) && _.isNaN(newVal);
+                        if (oldValue[key] !== newVal && !bothNaN){
+                            changeCount++;
+                            oldValue[key] = newVal;
+                        }
+                    } else{
+                        changeCount++;
+                        oldLength++;
+                        oldValue[key] = newVal;
+                    }
+
+                });
+                if (oldLength>newLength){
+                    changeCount++;
+                    _.forOwn(oldValue, function(oldVal, key){
+                        if (!newValue.hasOwnProperty(key)){
+                            //changeCount++;
+                            oldLength--;
+                            delete oldValue[key];
+                        }
+                    });
+                }
+
+            }
+        }
+        else{
+            if (!self.$$areEqual(newValue, oldValue, false)) {
+                changeCount += 1;
+            }
+            oldValue = newValue;
+        }
+
+        return changeCount;
+    };
+    var internalListenerFn = function(){
+        if (firstRun){
+            listenerFn(newValue, oldValue, self);
+            firstRun = false;
+        }
+        else{
+            listenerFn(newValue, veryOldValue, self);
+        }
+        if (trackVeryOldValue){
+            veryOldValue = _.clone(newValue);
+        }
+    };
+    return this.$watch(internalWatchFn, internalListenerFn);
+};
+
+//for array-like objects, for example node list or parameters
+function isArrayLike(obj){
+    if (_.isNull(obj)||_.isUndefined(obj)){
+        return false;
+    }
+    var length = obj.length;
+    //return _.isNumber(length);
+    return length===0 || (_.isNumber(length) && length>0 && (length-1) in obj);
+}
+
 module.exports = Scope;

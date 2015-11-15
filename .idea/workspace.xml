@@ -21,21 +21,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="scope.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/scope.js">
+      <file leaf-file-name="scope_spec.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/scope_spec.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.9724138">
-              <caret line="96" column="83" selection-start-line="96" selection-start-column="83" selection-end-line="96" selection-end-column="83" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="1260" column="19" selection-start-line="1260" selection-start-column="18" selection-end-line="1260" selection-end-column="19" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="scope_spec.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/scope_spec.js">
+      <file leaf-file-name="scope.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/scope.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="1172" column="26" selection-start-line="1172" selection-start-column="20" selection-end-line="1172" selection-end-column="26" />
+            <state vertical-scroll-proportion="0.31724137">
+              <caret line="288" column="32" selection-start-line="288" selection-start-column="16" selection-end-line="288" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -347,15 +347,15 @@
     <entry file="file://$PROJECT_DIR$/test/scope_spec.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="1172" column="26" selection-start-line="1172" selection-start-column="20" selection-end-line="1172" selection-end-column="26" />
+          <caret line="1260" column="19" selection-start-line="1260" selection-start-column="18" selection-end-line="1260" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/scope.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.9724138">
-          <caret line="96" column="83" selection-start-line="96" selection-start-column="83" selection-end-line="96" selection-end-column="83" />
+        <state vertical-scroll-proportion="0.31724137">
+          <caret line="288" column="32" selection-start-line="288" selection-start-column="16" selection-end-line="288" selection-end-column="32" />
           <folding />
         </state>
       </provider>
