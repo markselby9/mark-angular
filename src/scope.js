@@ -16,6 +16,8 @@ function Scope(){
 
     this.$$children = [];
     this.$root = this;
+
+    this.$$listeners = {};
 }
 
 Scope.prototype.$watch = function(watchFn, listenerFn, valueEq){
@@ -260,6 +262,7 @@ Scope.prototype.$new = function(isolated, parent){
     //var child = Object.create(this);
     child.$$watchers = [];
     child.$$children = [];
+    child.$$listeners = {};
     child.$parent = parent;
     return child;
 };
@@ -275,6 +278,7 @@ Scope.prototype.$$everyScope = function(fn){
 };
 
 Scope.prototype.$destroy = function(){
+    this.$broadcast('$destroy');
     if (this.$parent){
         var siblings = this.$parent.$$children;
         var indexOfThis = siblings.indexOf(this);
@@ -283,6 +287,7 @@ Scope.prototype.$destroy = function(){
         }
     }
     this.$$watchers = null;
+    this.$$listeners = {}; //reset listeners
 };
 
 //watching collections
@@ -383,5 +388,92 @@ function isArrayLike(obj){
     //return _.isNumber(length);
     return length===0 || (_.isNumber(length) && length>0 && (length-1) in obj);
 }
+
+//Scope events
+Scope.prototype.$on = function(eventName, listenerFn){
+    var listeners = this.$$listeners[eventName];
+    if (!listeners){
+        listeners = [];
+        this.$$listeners[eventName] = listeners;
+    }
+    listeners.push(listenerFn);
+    return function(){
+        var index = listeners.indexOf(listenerFn);
+        if (index >= 0){
+            //listeners.splice(index, 1);
+            listeners[index] = null;
+        }
+    };
+};
+
+Scope.prototype.$emit = function(eventName){
+    var propagationStopped = false;
+    var event = {
+        name: eventName,
+        targetScope: this,
+        stopPropagation: function(){
+            propagationStopped = true;
+        },
+        preventDefault: function(){
+            event.defaultPrevented = true;
+        }
+    };
+    
+    var additionalArgs = _.rest(arguments); //remaining args
+    var listenerArgs = [event].concat(additionalArgs);
+    var scope = this;
+    do {
+        event.currentScope = scope;
+        scope.$$fireEventOnScope(eventName, listenerArgs);
+        scope = scope.$parent;
+    } while (scope && !propagationStopped);
+    event.currentScope = null;
+    //return this.$$fireEventOnScope(eventName, additionalArgs);
+    return event;
+};
+
+Scope.prototype.$broadcast = function(eventName){
+    //var additionalArgs = _.rest(arguments);
+    //return this.$$fireEventOnScope(eventName, additionalArgs);
+
+    var event = {
+        name: eventName,
+        targetScope: this,
+        preventDefault: function(){
+            event.defaultPrevented = true;
+        }};
+    var additionalArgs = _.rest(arguments); //remaining args
+    var listenerArgs = [event].concat(additionalArgs);
+    var scope = this;
+    this.$$everyScope(function(scope){
+        event.currentScope = scope;
+        scope.$$fireEventOnScope(eventName, listenerArgs);
+        return true;
+    });
+    event.currentScope = null;
+    return event;
+};
+
+Scope.prototype.$$fireEventOnScope = function(eventName, listenerArgs){
+    var listeners = this.$$listeners[eventName] || [];
+    //_.forEach(listeners, function(listenerFn){
+    //    //listenerFn(event);
+    //    listenerFn.apply(null, listenerArgs);
+    //});
+    var i = 0;
+    while (i < listeners.length){
+        if (listeners[i]===null){
+            listeners.splice(i, 1);
+        }else{
+            try{
+                listeners[i].apply(null, listenerArgs);
+            } catch (e){
+                console.error(e);
+            }
+            i++;
+        }
+    }
+    return event;
+};
 
 module.exports = Scope;
