@@ -418,7 +418,7 @@ Scope.prototype.$emit = function(eventName){
             event.defaultPrevented = true;
         }
     };
-    
+
     var additionalArgs = _.rest(arguments); //remaining args
     var listenerArgs = [event].concat(additionalArgs);
     var scope = this;
