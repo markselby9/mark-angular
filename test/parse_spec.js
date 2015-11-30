@@ -449,4 +449,180 @@ describe("parse", function() {
         expect(function() { fn({fun: function() { }, obj: {}}); }).toThrow();
     });
 
+    it('parses a unary +', function() {
+        expect(parse('+42')()).toBe(42);
+        expect(parse('+a')({a: 42})).toBe(42);
+    });
+
+    it('replaces undefined with zero for unary +', function() {
+        expect(parse('+a')({})).toBe(0);
+    });
+
+    it('parses a unary !', function() {
+        expect(parse('!true')()).toBe(false);
+        expect(parse('!42')()).toBe(false);
+        expect(parse('!a')({a: false})).toBe(true);
+        expect(parse('!!a')({a: false})).toBe(false);
+    });
+
+    it('parses a unary -', function() {
+        expect(parse('-42')()).toBe(-42);
+        expect(parse('-a')({a: -42})).toBe(42);
+        expect(parse('--a')({a: -42})).toBe(-42);
+        expect(parse('-a')({})).toBe(0);
+    });
+
+    it('parses a ! in a string', function() {
+        expect(parse('"!"')()).toBe('!');
+    });
+
+    it('parses a multiplication', function() {
+        expect(parse('21 * 2')()).toBe(42);
+    });
+
+    it('parses a division', function() {
+        expect(parse('84 / 2')()).toBe(42);
+    });
+
+    it('parses a remainder', function() {
+        expect(parse('85 % 43')()).toBe(42);
+    });
+
+    it('parses several multiplicatives', function() {
+        expect(parse('36 * 2 % 5')()).toBe(2);
+    });
+
+    it('parses an addition', function() {
+        expect(parse('20 + 22')()).toBe(42);
+    });
+
+    it('parses a subtraction', function() {
+        expect(parse('42 - 22')()).toBe(20);
+    });
+
+    it('parses multiplicatives on a higher precedence than additives', function() {
+        expect(parse('2 + 3 * 5')()).toBe(17);
+        expect(parse('2 + 3 * 2 + 3')()).toBe(11);
+    });
+
+    it('substitutes undefined with zero in addition', function() {
+        expect(parse('a + 22')()).toBe(22);
+        expect(parse('42 + a')()).toBe(42);
+    });
+
+    it('substitutes undefined with zero in subtraction', function() {
+        expect(parse('a - 22')()).toBe(-22);
+        expect(parse('42 - a')()).toBe(42);
+    });
+
+    it('parses relational operators', function() {
+        expect(parse('1 < 2')()).toBe(true);
+        expect(parse('1 > 2')()).toBe(false);
+        expect(parse('1 <= 2')()).toBe(true);
+        expect(parse('2 <= 2')()).toBe(true);
+        expect(parse('1 >= 2')()).toBe(false);
+        expect(parse('2 >= 2')()).toBe(true);
+    });
+
+    it('parses equality operators', function() {
+        expect(parse('42 == 42')()).toBe(true);
+        expect(parse('42 == "42"')()).toBe(true);
+        expect(parse('42 != 42')()).toBe(false);
+        expect(parse('42 === 42')()).toBe(true);
+        expect(parse('42 === "42"')()).toBe(false);
+        expect(parse('42 !== 42')()).toBe(false);
+    });
+
+    it('parses relationals on a higher precedence than equality', function() {
+        expect(parse('2 == "2" > 2 === "2"')()).toBe(false);
+    });
+
+    it('parses additives on a higher precedence than relationals', function() {
+        expect(parse('2 + 3 < 6 - 2')()).toBe(false);
+    });
+
+    it('parses logical AND', function() {
+        expect(parse('true && true')()).toBe(true);
+        expect(parse('true && false')()).toBe(false);
+    });
+
+    it('parses logical OR', function() {
+        expect(parse('true || true')()).toBe(true);
+        expect(parse('true || false')()).toBe(true);
+        expect(parse('fales || false')()).toBe(false);
+    });
+
+    it('parses multiple ANDs', function() {
+        expect(parse('true && true && true')()).toBe(true);
+        expect(parse('true && true && false')()).toBe(false);
+    });
+
+    it('parses multiple ORs', function() {
+        expect(parse('true || true || true')()).toBe(true);
+        expect(parse('true || true || false')()).toBe(true);
+        expect(parse('false || false || true')()).toBe(true);
+        expect(parse('false || false || false')()).toBe(false);
+    });
+
+    it('short-circuits AND', function() {
+        var invoked;
+        var scope = {fn: function() { invoked = true; }};
+
+        parse('false && fn()')(scope);
+
+        expect(invoked).toBeUndefined();
+    });
+
+    it('short-circuits OR', function() {
+        var invoked;
+        var scope = {fn: function() { invoked = true; }};
+
+        parse('true || fn()')(scope);
+
+        expect(invoked).toBeUndefined();
+    });
+
+    it('parses AND with a higher precedence than OR', function() {
+        expect(parse('false && true || true')()).toBe(true);
+    });
+
+    it('parses OR with a lower precedence than equality', function() {
+        expect(parse('1 === 2 || 2 === 2')()).toBeTruthy();
+    });
+
+    it('parses the ternary expression', function() {
+        expect(parse('a === 42 ? true : false')({a: 42})).toBe(true);
+        expect(parse('a === 42 ? true : false')({a: 43})).toBe(false);
+    });
+
+    it('parses OR with a higher precedence than ternary', function() {
+        expect(parse('0 || 1 ? 0 || 2 : 0 || 3')()).toBe(2);
+    });
+
+    it('parses nested ternaries', function() {
+        expect(
+            parse('a === 42 ? b === 42 ? "a and b" : "a" : c === 42 ? "c" : "none"')({
+                a: 44,
+                b: 43,
+                c: 42
+            })).toEqual('c');
+    });
+
+    it('parses parentheses altering precedence order', function() {
+        expect(parse('21 * (3 - 1)')()).toBe(42);
+        expect(parse('false && (true || true)')()).toBe(false);
+        expect(parse('-((a % 2) === 0 ? 1 : 2)')({a: 42})).toBe(-1);
+    });
+
+    it('parses several statements', function() {
+        var fn = parse('a = 1; b = 2; c = 3');
+        var scope = {};
+        fn(scope);
+        expect(scope).toEqual({a: 1, b: 2, c: 3});
+    });
+
+    it('returns the value of the last statement', function() {
+        expect(parse('a = 1; b = 2; a + b')({})).toBe(3);
+    });
+
 });
