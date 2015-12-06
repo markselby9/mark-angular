@@ -36,8 +36,8 @@
       <file leaf-file-name="parse.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/parse.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.20827587">
-              <caret line="49" column="32" selection-start-line="49" selection-start-column="32" selection-end-line="49" selection-end-column="32" />
+            <state vertical-scroll-proportion="0.3737931">
+              <caret line="682" column="0" selection-start-line="682" selection-start-column="0" selection-end-line="682" selection-end-column="0" />
               <folding>
                 <element signature="e#0#45#0" expanded="false" />
               </folding>
@@ -525,8 +525,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/parse.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20827587">
-          <caret line="49" column="32" selection-start-line="49" selection-start-column="32" selection-end-line="49" selection-end-column="32" />
+        <state vertical-scroll-proportion="0.3737931">
+          <caret line="682" column="0" selection-start-line="682" selection-start-column="0" selection-end-line="682" selection-end-column="0" />
           <folding>
             <element signature="e#0#45#0" expanded="false" />
           </folding>
