@@ -670,6 +670,4 @@ describe("parse", function() {
         var fn = parse('"hello" | surround:"*":"!"');
         expect(fn()).toEqual('*hello!');
     });
-
-
 });
