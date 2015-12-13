@@ -28,11 +28,18 @@ var OPERATORS = {
 };
 
 function parse(expr){
-    var lexer = new Lexer();
-    var parser = new Parser(lexer);
-    var result = parser.parse(expr);
-    //console.log(result);
-    return result;
+    switch (typeof expr){
+        case 'string':
+            var lexer = new Lexer();
+            var parser = new Parser(lexer);
+            var result = parser.parse(expr);
+            //console.log(result);
+            return result;
+        case 'function':
+            return expr;
+        default:
+            return _.noop;  //lodash function that does nothing
+    }
 }
 
 function Lexer(){
