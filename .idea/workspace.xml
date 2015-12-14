@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9320c0d3-73e6-4105-aca4-ed6d645977aa" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/parse.js" afterPath="$PROJECT_DIR$/src/parse.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scope.js" afterPath="$PROJECT_DIR$/src/scope.js" />
     </list>
     <ignored path="mark-angular.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,28 +27,28 @@
       <file leaf-file-name="scope_spec.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/scope_spec.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="1216" column="34" selection-start-line="1216" selection-start-column="34" selection-end-line="1216" selection-end-column="34" />
+            <state vertical-scroll-proportion="-247.48148">
+              <caret line="1805" column="18" selection-start-line="1805" selection-start-column="12" selection-end-line="1805" selection-end-column="18" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="parse_spec.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="parse_spec.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/parse_spec.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
+            <state vertical-scroll-proportion="-16.048275">
               <caret line="22" column="7" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="parse.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="parse.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/parse.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6896552">
-              <caret line="568" column="162" selection-start-line="568" selection-start-column="162" selection-end-line="568" selection-end-column="162" />
+            <state vertical-scroll-proportion="-6.3703704">
+              <caret line="764" column="64" selection-start-line="764" selection-start-column="64" selection-end-line="764" selection-end-column="64" />
               <folding>
                 <element signature="e#0#45#0" expanded="false" />
               </folding>
@@ -58,8 +59,8 @@
       <file leaf-file-name="scope.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/scope.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.703704">
-              <caret line="130" column="23" selection-start-line="130" selection-start-column="23" selection-end-line="130" selection-end-column="23" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="199" column="0" selection-start-line="199" selection-start-column="0" selection-end-line="199" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -91,8 +92,8 @@
         <option value="$PROJECT_DIR$/src/filter.js" />
         <option value="$PROJECT_DIR$/src/filter_filter.js" />
         <option value="$PROJECT_DIR$/test/parse_spec.js" />
-        <option value="$PROJECT_DIR$/src/scope.js" />
         <option value="$PROJECT_DIR$/test/scope_spec.js" />
+        <option value="$PROJECT_DIR$/src/scope.js" />
         <option value="$PROJECT_DIR$/src/parse.js" />
       </list>
     </option>
@@ -606,37 +607,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/parse_spec.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="22" column="7" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/scope_spec.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1216" column="34" selection-start-line="1216" selection-start-column="34" selection-end-line="1216" selection-end-column="34" />
+        <state vertical-scroll-proportion="-247.48148">
+          <caret line="1805" column="18" selection-start-line="1805" selection-start-column="12" selection-end-line="1805" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/scope.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.703704">
-          <caret line="130" column="23" selection-start-line="130" selection-start-column="23" selection-end-line="130" selection-end-column="23" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="199" column="0" selection-start-line="199" selection-start-column="0" selection-end-line="199" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/parse.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6896552">
-          <caret line="568" column="162" selection-start-line="568" selection-start-column="162" selection-end-line="568" selection-end-column="162" />
+        <state vertical-scroll-proportion="-6.3703704">
+          <caret line="764" column="64" selection-start-line="764" selection-start-column="64" selection-end-line="764" selection-end-column="64" />
           <folding>
             <element signature="e#0#45#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/parse_spec.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-16.048275">
+          <caret line="22" column="7" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
+          <folding />
         </state>
       </provider>
     </entry>
