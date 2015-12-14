@@ -531,9 +531,11 @@ ASTCompiler.prototype.compile = function(text){
     //console.log(fnString);
     /* jshint -W054 */
     //return new Function('s', this.state.body.join(''));      //basically a form of eval
-    return new Function('ensureSafeMemberName', 'ensureSafeObject', 'ensureSafeFunction', 'ifDefined', 'filter',
+    var fn = new Function('ensureSafeMemberName', 'ensureSafeObject', 'ensureSafeFunction', 'ifDefined', 'filter',
         fnString)(ensureSafeMemberName, ensureSafeObject, ensureSafeFunction, ifDefined, filter);
     /* jshint +W054 */
+    fn.literal = isLiteral(ast);
+    return fn;
 };
 
 function ensureSafeMemberName(name){
@@ -557,6 +559,14 @@ function ensureSafeObject(obj){
         }
     }
     return obj;
+}
+
+//chapter 9
+function isLiteral(ast){
+    if (ast.body.length === 0){
+        return true;
+    }
+    return (ast.body.length === 1) && (ast.body[0].type === AST.Literal || ast.body[0].type === AST.ArrayExpression || ast.body[0].type === AST.ObjectExpression);
 }
 
 var CALL = Function.prototype.call;
