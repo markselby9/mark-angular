@@ -21,7 +21,7 @@ function filterFilter(){
 
 function createPredicateFn(expression, comparator){
     var shouldMatchPrimitives = _.isObject(expression) && ('$' in expression);
-    if (comparator == true){
+    if (comparator === true){
         comparator = _.isEqual;
     }
     else if (!_.isFunction(comparator)){

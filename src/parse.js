@@ -102,7 +102,7 @@ function oneTimeWatchDelegate(scope, listenerFn, valueEq, watchFn){
 
 function oneTimeLiteralWatchDelegate(scope, listenerFn, valueEq, watchFn){  //only applied for arrays and objects
     function isAllDefined(val){
-        return _.any(val, _.isUndefined);
+        return !_.any(val, _.isUndefined);
     }
     var unwatch = scope.$watch(
         function(){ //wrap in a function with no $$watchDelegate
@@ -119,7 +119,6 @@ function oneTimeLiteralWatchDelegate(scope, listenerFn, valueEq, watchFn){  //on
                     }
                 });
             }
-            unwatch();
         },
         valueEq
     );
@@ -336,6 +335,7 @@ AST.UnaryExpression = 'UnaryExpression';
 AST.BinaryExpression = 'BinaryExpression';
 AST.LogicalExpression = 'LogicalExpression';
 AST.ConditionalExpression = 'ConditionalExpression';
+AST.NGValueParameter = 'NGValueParameter';
 
 AST.prototype.constants = {
     'null': {type:AST.Literal, value:null},
@@ -633,11 +633,13 @@ function ASTCompiler(astbuilder){
 //COMPILE
 ASTCompiler.prototype.compile = function(text){
     var ast = this.astBuilder.ast(text);
+    var extra = '';
     markConstantAndWatchExpressions(ast);
     this.state = {
         nextId: 0,
         fn:{body:[], vars:[]},
         filters:{},
+        assign: {body:[], vars:[]},
         inputs: []
     };
     this.stage = 'inputs';
@@ -648,12 +650,20 @@ ASTCompiler.prototype.compile = function(text){
         this.state[inputKey].body.push('return '+this.recurse(input)+';');
         this.state.inputs.push(inputKey);
     }, this);
+    this.stage = 'assign';
+    var assignable = assignableAST(ast);
+    if (!assignable) {
+    } else {
+        this.state.computing = "assign";
+        this.state.assign.body.push(this.recurse(assignable));
+        extra = 'fn.assign = function(s,v,l){' + (this.state.assign.vars.length ? 'var ' + this.state.assign.vars.join(',') + ';' : '') + this.state.assign.body.join('') + '};';
+    }
     this.stage = 'main';
     this.state.computing = 'fn';
     this.recurse(ast);
     var fnString = this.filterPrefix() +
         'var fn = function(s,l){' + (this.state.fn.vars.length?'var '+this.state.fn.vars.join(',')+';':'') +
-        this.state.fn.body.join('')+'};'+this.watchFns()+' return fn;';
+        this.state.fn.body.join('')+'};'+this.watchFns()+extra+'return fn;';
     console.log(fnString);
     /* jshint -W054 */
     //return new Function('s', this.state.body.join(''));      //basically a form of eval
@@ -756,7 +766,8 @@ function markConstantAndWatchExpressions(ast){
             ast.toWatch = [ast];
             break;
         case AST.CallExpression:
-            allConstants = ast.filter? true: false;
+            var stateless = ast.filter && !filter(ast.callee.name).$stateful;
+            allConstants = stateless? true: false;
             argsToWatch = [];
             _.forEach(ast.arguments, function(argument){
                 markConstantAndWatchExpressions(argument);
@@ -766,7 +777,7 @@ function markConstantAndWatchExpressions(ast){
                 }
             });
             ast.constant = allConstants;
-            ast.toWatch = ast.filter?argsToWatch:[ast];
+            ast.toWatch = stateless?argsToWatch:[ast];
             break;
         case AST.AssignmentExpression:
             markConstantAndWatchExpressions(ast.left);
@@ -798,6 +809,7 @@ function markConstantAndWatchExpressions(ast){
             ast.constant = ast.test.constant && ast.consequent.constant && ast.alternate.constant;
             ast.toWatch = [ast];
             break;
+
     }
 }
 
@@ -811,6 +823,20 @@ function getInputs(ast){
     }
 }
 
+function isAssignable(ast){
+    return ast.type === AST.MemberExpression || ast.type === AST.Identifier;
+}
+
+function assignableAST(ast){
+    if (ast.body.length == 1 && isAssignable(ast.body[0])){
+        return {
+            type: AST.AssignmentExpression,
+            left: ast.body[0],
+            right: {type: AST.NGValueParameter}
+        };
+    }
+}
+
  ASTCompiler.prototype.watchFns = function(){
     var result = [];
     _.forEach(this.state.inputs, function(inputName){
@@ -819,7 +845,7 @@ function getInputs(ast){
         this.state[inputName].body.join(''), '};');
     }, this);
     if (result.length){
-        result.push('fn.inputs = [', this.state.inputs.join(','), '];')
+        result.push('fn.inputs = [', this.state.inputs.join(','), '];');
     }
     return result.join('');
 };
@@ -980,6 +1006,8 @@ ASTCompiler.prototype.recurse = function(ast, context, create){
             this.if_(testId, this.assign(intoId, this.recurse(ast.consequent)));
             this.if_(this.not(testId), this.assign(intoId, this.recurse(ast.alternate)));
             return intoId;
+        case AST.NGValueParameter:
+            return 'v';
     }
 };
 
