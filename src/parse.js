@@ -664,7 +664,7 @@ ASTCompiler.prototype.compile = function(text){
     var fnString = this.filterPrefix() +
         'var fn = function(s,l){' + (this.state.fn.vars.length?'var '+this.state.fn.vars.join(',')+';':'') +
         this.state.fn.body.join('')+'};'+this.watchFns()+extra+'return fn;';
-    console.log(fnString);
+    //console.log(fnString);
     /* jshint -W054 */
     //return new Function('s', this.state.body.join(''));      //basically a form of eval
     var fn = new Function('ensureSafeMemberName', 'ensureSafeObject', 'ensureSafeFunction', 'ifDefined', 'filter',
