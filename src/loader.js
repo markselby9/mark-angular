@@ -10,9 +10,15 @@ function setupModuleLoader(){
         if (moduleName === 'hasOwnProperty'){
             throw 'hasOwnProperty is not a valid module name';
         }
+        var invokeQueue = [];
         var moduleInstance = {
             name: moduleName,
-            requires: moduleDepedencies
+            requires: moduleDepedencies,
+            constant: function(key, value){
+                invokeQueue.push(['constant', [key, value]]);
+            },
+            _invokeQueue: invokeQueue
+
         };
         modules[moduleName] = moduleInstance;
         return moduleInstance;
