@@ -4,6 +4,8 @@
 
 'use strict';
 var _ = require('lodash');
+var HashMap = require('./hash_map').HashMap;
+
 var FN_ARGS = /^function\s*[^\(]*\(\s*([^)]*)\)/m;  //reg expression
 var FN_ARG = /^\s*(_?)(\S+?)\1\s*$/;
 var STRIP_COMMENTS = /(\/\/.*$)|(\/\*.*?\*\/)/mg;    //? means lazy quantifier, g means multiple matches
@@ -11,20 +13,32 @@ var INSTANTIATING = {}; //marker value
 
 function createInjector(modulesToLoad, strictDI){   //strict dependency injection mode
     var providerCache = {}; //for providers
-    var providerInjector = createInternalInjector(providerCache, function(){
+    var providerInjector = providerCache.$injector =
+        createInternalInjector(providerCache, function(){
         throw 'Unknown provider: '+path.join(' <- ');
     });
     var instanceCache = {}; // for dependency instances
-    var instanceInjector = createInternalInjector(instanceCache, function(name){
+    var instanceInjector = instanceCache.$injector =
+        createInternalInjector(instanceCache, function(name){
         var provider = providerInjector.get(name+'Provider');
         return instanceInjector.invoke(provider.$get, provider);
     });
 
-    var loadedModules = {};
+    var loadedModules = new HashMap();
     var path = [];  // to record the circular dependency path
     strictDI = (strictDI === true); //must be true
 
-    var $provide = {
+
+    function enforceReturnValue(factoryFn){
+        return function(){
+            var value = instanceInjector.invoke(factoryFn);
+            if (_.isUndefined(value)){
+                throw 'factory must return a value';
+            }
+            return value;
+        };
+    }
+    providerCache.$provide = {
         constant: function(key, value){
             if (key === 'hasOwnProperty'){
                 throw 'hasOwnProperty is not a valid key for const';
@@ -37,6 +51,29 @@ function createInjector(modulesToLoad, strictDI){   //strict dependency injectio
                 provider = providerInjector.instantiate(provider);
             }
             providerCache[key+'Provider'] = provider;
+        },
+        factory: function(key, factoryFn, enforce){
+            this.provider(key, {
+                $get: enforce === false?factoryFn:enforceReturnValue(factoryFn)});
+        },
+        value: function(key, value){
+            this.factory(key, _.constant(value), false);
+        },
+        service: function(key, Constructor){
+            this.factory(key, function(){
+                return instanceInjector.instantiate(Constructor);
+            });
+        },
+        decorator: function(serviceName, decoratorFn){
+            var provider = providerInjector.get(serviceName+'Provider');
+            //override the original $get method
+            var original$get = provider.$get;
+            provider.$get = function(){
+                var instance = instanceInjector.invoke(original$get, provider);
+                //modifications
+                instanceInjector.invoke(decoratorFn, null, {$delegate: instance});
+                return instance;
+            };
         }
     };
 
@@ -124,20 +161,40 @@ function createInjector(modulesToLoad, strictDI){   //strict dependency injectio
         };
     }
 
+    function runInvokeQueue(queue){
+        _.forEach(queue, function(invokeArgs){
+            var service = providerInjector.get(invokeArgs[0]);
+            var method = invokeArgs[1];
+            var args = invokeArgs[2];
+            service[method].apply(service, args);
+            //providerCache.$provide[method].apply(providerCache.$provide, args);
+        });
+    }
 
-    _.forEach(modulesToLoad, function loadModule(moduleName){
-        if (!loadedModules.hasOwnProperty(moduleName)){
-            loadedModules[moduleName] = true;
-            var module = window.angular.module(moduleName);
-            _.forEach(module.requires, loadModule);
-            _.forEach(module._invokeQueue, function(invokeArgs){
-                var method = invokeArgs[0];
-                var args = invokeArgs[1];
-                $provide[method].apply($provide, args);
-            });
+    var runBlocks = [];
+    _.forEach(modulesToLoad, function loadModule(module){
+        if (!loadedModules.get(module)){
+            loadedModules.put(module, true);
+            if (_.isString(module)){
+                if (!loadedModules.hasOwnProperty(module)){
+                    loadedModules[module] = true;
+                    module = window.angular.module(module);
+                    _.forEach(module.requires, loadModule);
+                    runInvokeQueue(module._invokeQueue);
+                    runInvokeQueue(module._configBlocks);
+                    runBlocks = runBlocks.concat(module._runBlocks);
+                }
+            }
+            else if (_.isFunction(module) || _.isArray(module)){
+                runBlocks.push(providerInjector.invoke(module));
+                //push the return value to the run blocks
+            }
         }
-    });
 
+    });
+    _.forEach(_.compact(runBlocks), function(runBlock){
+        instanceInjector.invoke(runBlock);
+    });
     return instanceInjector;
 }
 

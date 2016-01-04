@@ -6,14 +6,18 @@ function setupModuleLoader(){
     };
     var angular = ensure(window, 'angular', Object);
 
-    var createModule = function(moduleName, moduleDepedencies, modules){
+    var createModule = function(moduleName, moduleDepedencies, modules, configFn){
         if (moduleName === 'hasOwnProperty'){
             throw 'hasOwnProperty is not a valid module name';
         }
         var invokeQueue = [];
-        var invokeLater = function(method, arrayMethod){
+        var configBlocks = [];
+
+        var invokeLater = function(service, method, arrayMethod, queue){
+            //1) The object whose method to call, 2) The name of the method to call, and 3) The method arguments:
             return function(){
-                invokeQueue[arrayMethod || 'push']([method, arguments]);
+                queue = queue || invokeQueue;
+                queue[arrayMethod || 'push']([service, method, arguments]);
                 return moduleInstance;
             };
         };
@@ -21,11 +25,26 @@ function setupModuleLoader(){
         var moduleInstance = {
             name: moduleName,
             requires: moduleDepedencies,
-            constant: invokeLater('constant', 'unshift'),
-            provider: invokeLater('provider'),
-            _invokeQueue: invokeQueue
+            constant: invokeLater('$provide', 'constant', 'unshift'),
+            provider: invokeLater('$provide', 'provider'),
+            factory: invokeLater('$provide', 'factory'),
+            value: invokeLater('$provide', 'value'),
+            service: invokeLater('$provide', 'service'),
+            decorator: invokeLater('$provide', 'decorator'),
+            filter: invokeLater('$filterProvider', 'register'),
+            config: invokeLater('$injector', 'invoke', 'push', configBlocks),
+            run: function(fn){
+                moduleInstance._runBlocks.push(fn);
+                return moduleInstance;
+            },
+            _invokeQueue: invokeQueue,
+            _configBlocks: configBlocks,
+            _runBlocks: []
 
         };
+        if (configFn){
+            moduleInstance.config(configFn);
+        }
         modules[moduleName] = moduleInstance;
         return moduleInstance;
     };
@@ -38,9 +57,9 @@ function setupModuleLoader(){
     };
     var module = ensure(angular, 'module', function(){
         var modules = {};
-        return function(name, requires){
+        return function(name, requires, configFn){
             if (requires){
-                return createModule(name, requires, modules);
+                return createModule(name, requires, modules, configFn);
             }else{
                 return getModule(name, modules);
             }
