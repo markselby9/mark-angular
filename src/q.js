@@ -4,7 +4,7 @@
 'use strict';
 var _ = require('lodash');
 
-function QFactory(callLater){   //difference between $q and $$q is method of callLater
+function qFactory(callLater){   //difference between $q and $$q is method of callLater
 
     function Promise(){
         this.$$state = {};//save internal state
@@ -192,17 +192,17 @@ function QFactory(callLater){   //difference between $q and $$q is method of cal
 
 function $QProvider(){
     this.$get = ['$rootScope', function($rootScope){
-        return QFactory(function(callback){
+        return qFactory(function(callback){
             $rootScope.$evalAsync(callback);
-        })
+        });
     }];
 }
 
 function $$QProvider(){
     this.$get = function(){
-        return QFactory(function(callback){
+        return qFactory(function(callback){
             setTimeout(callback, 0);
-        })
+        });
     };
 }
 module.exports = {
