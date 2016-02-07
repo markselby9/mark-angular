@@ -41,7 +41,7 @@ function $HttpBackendProvider(){
                     xhr.abort();
                 }, timeout);
             }
-        }
+        };
     };
 }
 
