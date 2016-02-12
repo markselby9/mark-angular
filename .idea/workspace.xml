@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9320c0d3-73e6-4105-aca4-ed6d645977aa" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/compile.js" afterPath="$PROJECT_DIR$/src/compile.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/compile_spec.js" afterPath="$PROJECT_DIR$/test/compile_spec.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="mark-angular.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,8 +37,8 @@
       <file leaf-file-name="compile.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/compile.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5448276">
-              <caret line="242" column="0" selection-start-line="242" selection-start-column="0" selection-end-line="242" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.8689655">
+              <caret line="143" column="34" selection-start-line="143" selection-start-column="34" selection-end-line="143" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -662,8 +662,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/compile.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5448276">
-          <caret line="242" column="0" selection-start-line="242" selection-start-column="0" selection-end-line="242" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.8689655">
+          <caret line="143" column="34" selection-start-line="143" selection-start-column="34" selection-end-line="143" selection-end-column="34" />
           <folding />
         </state>
       </provider>
