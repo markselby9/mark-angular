@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9320c0d3-73e6-4105-aca4-ed6d645977aa" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-    </list>
+    <list default="true" id="9320c0d3-73e6-4105-aca4-ed6d645977aa" name="Default" comment="" />
     <ignored path="mark-angular.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,8 +24,8 @@
       <file leaf-file-name="compile_spec.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/compile_spec.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.0936508">
-              <caret line="1083" column="31" selection-start-line="1083" selection-start-column="31" selection-end-line="1083" selection-end-column="31" />
+            <state vertical-scroll-proportion="0.83492064">
+              <caret line="1248" column="41" selection-start-line="1248" selection-start-column="41" selection-end-line="1248" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -666,8 +664,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/compile_spec.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.0936508">
-          <caret line="1083" column="31" selection-start-line="1083" selection-start-column="31" selection-end-line="1083" selection-end-column="31" />
+        <state vertical-scroll-proportion="0.83492064">
+          <caret line="1248" column="41" selection-start-line="1248" selection-start-column="41" selection-end-line="1248" selection-end-column="41" />
           <folding />
         </state>
       </provider>
