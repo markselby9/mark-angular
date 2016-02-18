@@ -258,7 +258,7 @@ function $RootScopeProvider(){
             };
         };
 
-//Inheritance
+        //Inheritance
         Scope.prototype.$new = function(isolated, parent){
             var child;
             parent = parent || this;
