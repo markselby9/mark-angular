@@ -21,21 +21,24 @@ function $ControllerProvider() {
 
         return function (ctrl, locals, later, identifier) {
             if (_.isString(ctrl)) {
+                var match = ctrl.match(/^(\S+)(\s+as\s+(\w+))?/);
+                ctrl = match[1];
+                identifier = identifier || match[3];
                 if (registered_controllers.hasOwnProperty(ctrl)) {
                     ctrl = registered_controllers[ctrl];
-                } else if (global_flag) {
-                    ctrl = window[ctrl];
+                } else {
+                    ctrl = (locals && locals.$scope && locals.$scope[ctrl]) || (global_flag && window[ctrl]);
                 }
             }
 
             var instance;
             if (later) {
-                var ctrlConstructor = _.isArray(ctrl)? _.last(ctrl):ctrl;
+                var ctrlConstructor = _.isArray(ctrl) ? _.last(ctrl) : ctrl;
                 instance = Object.create(ctrlConstructor.prototype);
-                if (identifier){
+                if (identifier) {
                     addToScope(locals, identifier, instance);
                 }
-                return _.extend(function(){
+                return _.extend(function () {
                     $injector.invoke(ctrl, instance, locals);
                     return instance;
                 }, {
