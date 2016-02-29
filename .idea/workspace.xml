@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9320c0d3-73e6-4105-aca4-ed6d645977aa" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/笔记/Part 1- Scope.pdf" afterPath="$PROJECT_DIR$/NOTEBOOK/Part 1- Scope.pdf" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/笔记/Part 2-1--Expressions And Filters.pdf" afterPath="$PROJECT_DIR$/NOTEBOOK/Part 2-1--Expressions And Filters.pdf" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/笔记/Part 2-2--Expressions And Filters.pdf" afterPath="$PROJECT_DIR$/NOTEBOOK/Part 2-2--Expressions And Filters.pdf" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/笔记/Part 2-3--Expressions and Watches.pdf" afterPath="$PROJECT_DIR$/NOTEBOOK/Part 2-3--Expressions and Watches.pdf" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/笔记/Part 3- Modules And Dependency Injection.pdf" afterPath="$PROJECT_DIR$/NOTEBOOK/Part 3- Modules And Dependency Injection.pdf" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/笔记/Part 4- Utilities.pdf" afterPath="$PROJECT_DIR$/NOTEBOOK/Part 4- Utilities.pdf" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/笔记/Part 5-1--Directives.pdf" afterPath="$PROJECT_DIR$/NOTEBOOK/Part 5-1--Directives.pdf" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/笔记/Part 5-2--Directives.pdf" afterPath="$PROJECT_DIR$/NOTEBOOK/Part 5-2--Directives.pdf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="9320c0d3-73e6-4105-aca4-ed6d645977aa" name="Default" comment="" />
     <ignored path="mark-angular.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -35,8 +24,8 @@
       <file leaf-file-name="compile.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/compile.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5323383">
-              <caret line="509" column="0" selection-start-line="509" selection-start-column="0" selection-end-line="509" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.39800996">
+              <caret line="685" column="70" selection-start-line="685" selection-start-column="70" selection-end-line="685" selection-end-column="70" />
               <folding />
             </state>
           </provider>
@@ -257,7 +246,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="417" y="23" width="863" height="727" extended-state="1" />
+    <frame x="417" y="23" width="863" height="727" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -669,8 +658,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/compile.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5323383">
-          <caret line="509" column="0" selection-start-line="509" selection-start-column="0" selection-end-line="509" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.39800996">
+          <caret line="685" column="70" selection-start-line="685" selection-start-column="70" selection-end-line="685" selection-end-column="70" />
           <folding />
         </state>
       </provider>
