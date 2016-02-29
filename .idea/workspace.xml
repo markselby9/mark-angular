@@ -2,8 +2,47 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9320c0d3-73e6-4105-aca4-ed6d645977aa" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/directives/ng_transclude.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/directives/ng_transclude_spec.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 1: Scope.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 1: Scope.resources/9CA94F28-2431-4387-9CA9-4E62EAF0E59A.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 2(1):Expressions And Filters.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 2(1):Expressions And Filters.resources/80B21527-292F-4D0A-9A94-F56747F7A1CA.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 2(1):Expressions And Filters.resources/83451D35-4596-4367-A913-B7DED596FE93.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 2(1):Expressions And Filters.resources/8D59A396-10F4-41F6-B4B8-AF4E76214217.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 2(2):Expressions And Filters.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 2(3)：Expressions and Watches.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 3.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 3.resources/FE420C9D-BE73-4D1B-923D-95EB409E2A5F.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 4: Utilities.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 4: Utilities.resources/AA9DDE05-BCE1-42D0-914D-4BE3851A827C.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 4: Utilities.resources/D875FD50-161A-462B-B172-413DEBA7461F.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 5（1）:  Directives.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 5（1）:  Directives.resources/2F50761D-E366-4F96-BEA9-B769AF1F0E3D.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 5（1）:  Directives.resources/2F6FDEB5-E22F-486D-B880-00B7ECD21341.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 5（1）:  Directives.resources/3834BED6-8CCF-403F-AA61-ED47CDBD4C4F.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 5（1）:  Directives.resources/3996F822-4573-4268-BF69-98EDACD2C571.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 5（1）:  Directives.resources/6152EC64-31ED-4C53-BD99-771D7B4FDA56.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 5（1）:  Directives.resources/6762BC1C-297C-4A2F-9BC2-570072739631.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 5（1）:  Directives.resources/7B775D74-9C15-40E2-9E65-508360D74BE9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 5（1）:  Directives.resources/8537EB83-C0C2-4CB8-ADEB-4EC4A214C6A3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 5（1）:  Directives.resources/ADC50B93-50E8-42D8-8DE6-5EE0E5A41265.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 5（1）:  Directives.resources/B47456CB-9CF1-40A6-AC41-4D2848DEA443.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 5（1）:  Directives.resources/C5CD99D2-3260-441C-A4FB-514FF6AEC7F6.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 5（1）:  Directives.resources/CA19CDAE-7196-4B6B-8467-62B8D1388646.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 5（1）:  Directives.resources/D0B2612B-8ECE-4B60-9304-9C9D49F66DA8.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 5（1）:  Directives.resources/DA9E838F-FA8B-46C2-8455-50D34A0389D6.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 5（1）:  Directives.resources/DCC8B2C9-0CAB-4AD9-9A39-F7CB34DFFB92.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 5（1）:  Directives.resources/E0F00F8D-8B08-4162-A061-63CE364DF68F.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 5（1）:  Directives.resources/ECC917CE-7B21-49E9-AA7F-613B29F87F0B.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 5（1）:  Directives.resources/FC2F8717-91E1-4A3A-A708-DDFC7F2DEE61.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 5（1）:  Directives.resources/FF32907C-9122-4146-9529-94644D2042E6.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 5（1）:  Directives.resources/FFC743EB-2749-4C0E-8327-EE5ABFADBFB4.png" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/angular_public.js" afterPath="$PROJECT_DIR$/src/angular_public.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/compile.js" afterPath="$PROJECT_DIR$/src/compile.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/compile_spec.js" afterPath="$PROJECT_DIR$/test/compile_spec.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/regex_demo.js" afterPath="$PROJECT_DIR$/src/regex_demo.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="mark-angular.iws" />
@@ -28,18 +67,28 @@
       <file leaf-file-name="compile.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/compile.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.31111112">
-              <caret line="253" column="9" selection-start-line="253" selection-start-column="9" selection-end-line="253" selection-end-column="9" />
+            <state vertical-scroll-proportion="0.3323782">
+              <caret line="525" column="63" selection-start-line="525" selection-start-column="41" selection-end-line="525" selection-end-column="63" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="compile_spec.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/compile_spec.js">
+      <file leaf-file-name="ng_transclude.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/directives/ng_transclude.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="2715" column="48" selection-start-line="2715" selection-start-column="44" selection-end-line="2715" selection-end-column="48" />
+              <caret line="7" column="16" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="angular_public.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/angular_public.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="22" column="78" selection-start-line="22" selection-start-column="78" selection-end-line="22" selection-end-column="78" />
               <folding />
             </state>
           </provider>
@@ -94,12 +143,14 @@
         <option value="$PROJECT_DIR$/test/controller_spec.js" />
         <option value="$PROJECT_DIR$/src/loader.js" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/src/regex_demo.js" />
         <option value="$PROJECT_DIR$/src/test/directives/ng_controller_spec.js" />
         <option value="$PROJECT_DIR$/test/directives/ng_controller_spec.js" />
         <option value="$PROJECT_DIR$/src/directives/ng_controller.js" />
-        <option value="$PROJECT_DIR$/src/angular_public.js" />
         <option value="$PROJECT_DIR$/src/controller.js" />
+        <option value="$PROJECT_DIR$/src/regex_demo.js" />
+        <option value="$PROJECT_DIR$/test/directives/ng_transclude_spec.js" />
+        <option value="$PROJECT_DIR$/src/angular_public.js" />
+        <option value="$PROJECT_DIR$/src/directives/ng_transclude.js" />
         <option value="$PROJECT_DIR$/test/compile_spec.js" />
         <option value="$PROJECT_DIR$/src/compile.js" />
       </list>
@@ -113,9 +164,9 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
-    <option name="width" value="1280" />
-    <option name="height" value="727" />
+    <option name="x" value="576" />
+    <option name="width" value="704" />
+    <option name="height" value="800" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -128,7 +179,7 @@
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
+    <navigator proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -139,27 +190,14 @@
       <autoscrollFromSource />
       <sortByType />
     </navigator>
-    <panes>
-      <pane id="Scratches" />
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mark-angular" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="recentsLimit" value="5" />
-    <property name="FullScreen" value="false" />
+    <property name="FullScreen" value="true" />
     <property name="settings.editor.selected.configurable" value="JavaScript.Libraries" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
@@ -250,18 +288,18 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="727" extended-state="0" />
+    <frame x="576" y="0" width="704" height="800" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23040752" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22928993" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32934928" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32934928" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -272,26 +310,6 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32934928" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
-    <layout-to-restore>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32934928" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32934928" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -306,25 +324,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="3" />
+      <option name="time" value="4" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/test/hello_spec.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/hello.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="24" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/hello_spec.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.062068965">
@@ -449,6 +453,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="858" column="0" selection-start-line="858" selection-start-column="0" selection-end-line="858" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -606,14 +611,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/loader.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7241379">
-          <caret line="35" column="71" selection-start-line="35" selection-start-column="71" selection-end-line="35" selection-end-column="71" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/controller_spec.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -630,21 +627,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/regex_demo.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18620689">
-          <caret line="9" column="15" selection-start-line="9" selection-start-column="15" selection-end-line="9" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/angular_public.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43448275">
-          <caret line="21" column="19" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/directives/ng_controller_spec.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -657,7 +639,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6">
           <caret line="51" column="19" selection-start-line="51" selection-start-column="19" selection-end-line="51" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -665,22 +646,61 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2689655">
           <caret line="13" column="39" selection-start-line="13" selection-start-column="39" selection-end-line="13" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/regex_demo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/directives/ng_transclude_spec.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.4275862">
+          <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/loader.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7241379">
+          <caret line="35" column="71" selection-start-line="35" selection-start-column="71" selection-end-line="35" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/angular_public.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="78" selection-start-line="22" selection-start-column="78" selection-end-line="22" selection-end-column="78" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/compile_spec.js">
       <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5862069">
+          <caret line="344" column="24" selection-start-line="344" selection-start-column="24" selection-end-line="344" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/directives/ng_transclude.js">
+      <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="2715" column="48" selection-start-line="2715" selection-start-column="44" selection-end-line="2715" selection-end-column="48" />
+          <caret line="7" column="16" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/compile.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31111112">
-          <caret line="253" column="9" selection-start-line="253" selection-start-column="9" selection-end-line="253" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.3323782">
+          <caret line="525" column="63" selection-start-line="525" selection-start-column="41" selection-end-line="525" selection-end-column="63" />
           <folding />
         </state>
       </provider>
