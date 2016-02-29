@@ -2,47 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9320c0d3-73e6-4105-aca4-ed6d645977aa" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/directives/ng_transclude.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/directives/ng_transclude_spec.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 1: Scope.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 1: Scope.resources/9CA94F28-2431-4387-9CA9-4E62EAF0E59A.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 2(1):Expressions And Filters.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 2(1):Expressions And Filters.resources/80B21527-292F-4D0A-9A94-F56747F7A1CA.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 2(1):Expressions And Filters.resources/83451D35-4596-4367-A913-B7DED596FE93.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 2(1):Expressions And Filters.resources/8D59A396-10F4-41F6-B4B8-AF4E76214217.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 2(2):Expressions And Filters.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 2(3)：Expressions and Watches.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 3.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 3.resources/FE420C9D-BE73-4D1B-923D-95EB409E2A5F.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 4: Utilities.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 4: Utilities.resources/AA9DDE05-BCE1-42D0-914D-4BE3851A827C.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 4: Utilities.resources/D875FD50-161A-462B-B172-413DEBA7461F.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 5（1）:  Directives.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 5（1）:  Directives.resources/2F50761D-E366-4F96-BEA9-B769AF1F0E3D.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 5（1）:  Directives.resources/2F6FDEB5-E22F-486D-B880-00B7ECD21341.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 5（1）:  Directives.resources/3834BED6-8CCF-403F-AA61-ED47CDBD4C4F.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 5（1）:  Directives.resources/3996F822-4573-4268-BF69-98EDACD2C571.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 5（1）:  Directives.resources/6152EC64-31ED-4C53-BD99-771D7B4FDA56.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 5（1）:  Directives.resources/6762BC1C-297C-4A2F-9BC2-570072739631.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 5（1）:  Directives.resources/7B775D74-9C15-40E2-9E65-508360D74BE9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 5（1）:  Directives.resources/8537EB83-C0C2-4CB8-ADEB-4EC4A214C6A3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 5（1）:  Directives.resources/ADC50B93-50E8-42D8-8DE6-5EE0E5A41265.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 5（1）:  Directives.resources/B47456CB-9CF1-40A6-AC41-4D2848DEA443.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 5（1）:  Directives.resources/C5CD99D2-3260-441C-A4FB-514FF6AEC7F6.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 5（1）:  Directives.resources/CA19CDAE-7196-4B6B-8467-62B8D1388646.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 5（1）:  Directives.resources/D0B2612B-8ECE-4B60-9304-9C9D49F66DA8.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 5（1）:  Directives.resources/DA9E838F-FA8B-46C2-8455-50D34A0389D6.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 5（1）:  Directives.resources/DCC8B2C9-0CAB-4AD9-9A39-F7CB34DFFB92.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 5（1）:  Directives.resources/E0F00F8D-8B08-4162-A061-63CE364DF68F.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 5（1）:  Directives.resources/ECC917CE-7B21-49E9-AA7F-613B29F87F0B.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 5（1）:  Directives.resources/FC2F8717-91E1-4A3A-A708-DDFC7F2DEE61.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 5（1）:  Directives.resources/FF32907C-9122-4146-9529-94644D2042E6.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/my related notes/《Build your own angularJS》Part 5（1）:  Directives.resources/FFC743EB-2749-4C0E-8327-EE5ABFADBFB4.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/angular_public.js" afterPath="$PROJECT_DIR$/src/angular_public.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/compile.js" afterPath="$PROJECT_DIR$/src/compile.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/compile_spec.js" afterPath="$PROJECT_DIR$/test/compile_spec.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/regex_demo.js" afterPath="$PROJECT_DIR$/src/regex_demo.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/笔记/Part 1- Scope.pdf" afterPath="$PROJECT_DIR$/NOTEBOOK/Part 1- Scope.pdf" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/笔记/Part 2-1--Expressions And Filters.pdf" afterPath="$PROJECT_DIR$/NOTEBOOK/Part 2-1--Expressions And Filters.pdf" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/笔记/Part 2-2--Expressions And Filters.pdf" afterPath="$PROJECT_DIR$/NOTEBOOK/Part 2-2--Expressions And Filters.pdf" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/笔记/Part 2-3--Expressions and Watches.pdf" afterPath="$PROJECT_DIR$/NOTEBOOK/Part 2-3--Expressions and Watches.pdf" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/笔记/Part 3- Modules And Dependency Injection.pdf" afterPath="$PROJECT_DIR$/NOTEBOOK/Part 3- Modules And Dependency Injection.pdf" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/笔记/Part 4- Utilities.pdf" afterPath="$PROJECT_DIR$/NOTEBOOK/Part 4- Utilities.pdf" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/笔记/Part 5-1--Directives.pdf" afterPath="$PROJECT_DIR$/NOTEBOOK/Part 5-1--Directives.pdf" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/笔记/Part 5-2--Directives.pdf" afterPath="$PROJECT_DIR$/NOTEBOOK/Part 5-2--Directives.pdf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="mark-angular.iws" />
@@ -67,8 +35,8 @@
       <file leaf-file-name="compile.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/compile.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3323782">
-              <caret line="525" column="63" selection-start-line="525" selection-start-column="41" selection-end-line="525" selection-end-column="63" />
+            <state vertical-scroll-proportion="0.5323383">
+              <caret line="509" column="0" selection-start-line="509" selection-start-column="0" selection-end-line="509" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -142,7 +110,6 @@
         <option value="$PROJECT_DIR$/test/controller-spec.js" />
         <option value="$PROJECT_DIR$/test/controller_spec.js" />
         <option value="$PROJECT_DIR$/src/loader.js" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/test/directives/ng_controller_spec.js" />
         <option value="$PROJECT_DIR$/test/directives/ng_controller_spec.js" />
         <option value="$PROJECT_DIR$/src/directives/ng_controller.js" />
@@ -153,6 +120,7 @@
         <option value="$PROJECT_DIR$/src/directives/ng_transclude.js" />
         <option value="$PROJECT_DIR$/test/compile_spec.js" />
         <option value="$PROJECT_DIR$/src/compile.js" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -164,9 +132,10 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="576" />
-    <option name="width" value="704" />
-    <option name="height" value="800" />
+    <option name="x" value="417" />
+    <option name="y" value="23" />
+    <option name="width" value="863" />
+    <option name="height" value="727" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -197,7 +166,7 @@
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="recentsLimit" value="5" />
-    <property name="FullScreen" value="true" />
+    <property name="FullScreen" value="false" />
     <property name="settings.editor.selected.configurable" value="JavaScript.Libraries" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
@@ -288,7 +257,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="576" y="0" width="704" height="800" extended-state="0" />
+    <frame x="417" y="23" width="863" height="727" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -601,16 +570,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.25862068">
-          <caret line="12" column="112" selection-start-line="12" selection-start-column="112" selection-end-line="12" selection-end-column="112" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/controller_spec.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -697,10 +656,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.49916804">
+          <caret line="20" column="51" selection-start-line="20" selection-start-column="51" selection-end-line="20" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/compile.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3323782">
-          <caret line="525" column="63" selection-start-line="525" selection-start-column="41" selection-end-line="525" selection-end-column="63" />
+        <state vertical-scroll-proportion="0.5323383">
+          <caret line="509" column="0" selection-start-line="509" selection-start-column="0" selection-end-line="509" selection-end-column="0" />
           <folding />
         </state>
       </provider>
