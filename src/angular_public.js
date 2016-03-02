@@ -22,5 +22,6 @@ function publishExternalAPI(){
 
     ngModule.directive('ngController', require('./directives/ng_controller'));
     ngModule.directive('ngTransclude', require('./directives/ng_transclude'));
+    ngModule.directive('ngClick', require('./directives/ng_click'));
 }
 module.exports = publishExternalAPI;
