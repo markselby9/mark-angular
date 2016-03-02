@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mark angular sample app</title>
+</head>
+<body ng-app="mark_angular_sample">
+<script src="../markangular.js"></script>
+<script src="app.js"></script>
+    <div ng-controller="MyController as ctrl">
+        {{ctrl.counter}}
+        <button ng-click="ctrl.increase()">increase</button>
+        <button ng-click="ctrl.decrease()">decrease</button>
+    </div>
+</body>
+</html>
