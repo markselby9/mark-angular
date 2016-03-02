@@ -3602,4 +3602,221 @@ describe('$compile', function() {
 
     });
 
+    describe('interpolation', function() {
+
+        it('is done for text nodes', function() {
+            var injector = makeInjectorWithDirectives({});
+            injector.invoke(function($compile, $rootScope) {
+                var el = $('<div>My expression: {{myExpr}}</div>');
+                $compile(el)($rootScope);
+
+                $rootScope.$apply();
+                expect(el.html()).toEqual('My expression: ');
+
+                $rootScope.myExpr = 'Hello';
+                $rootScope.$apply();
+                expect(el.html()).toEqual('My expression: Hello');
+            });
+        });
+
+        it('adds binding class to text node parents', function() {
+            var injector = makeInjectorWithDirectives({});
+            injector.invoke(function($compile, $rootScope) {
+                var el = $('<div>My expression: {{myExpr}}</div>');
+                $compile(el)($rootScope);
+
+                expect(el.hasClass('ng-binding')).toBe(true);
+            });
+        });
+
+        it('adds binding data to text node parents', function() {
+            var injector = makeInjectorWithDirectives({});
+            injector.invoke(function($compile, $rootScope) {
+                var el = $('<div>{{myExpr}} and {{myOtherExpr}}</div>');
+                $compile(el)($rootScope);
+
+                expect(el.data('$binding')).toEqual(['myExpr', 'myOtherExpr']);
+            });
+        });
+
+        it('adds binding data to parent from multiple text nodes', function() {
+            var injector = makeInjectorWithDirectives({});
+            injector.invoke(function($compile, $rootScope) {
+                var el = $('<div>{{myExpr}} <span>and</span> {{myOtherExpr}}</div>');
+                $compile(el)($rootScope);
+
+                expect(el.data('$binding')).toEqual(['myExpr', 'myOtherExpr']);
+            });
+        });
+
+        it('is done for attributes', function() {
+            var injector = makeInjectorWithDirectives({});
+            injector.invoke(function($compile, $rootScope) {
+                var el = $('<img alt="{{myAltText}}">');
+                $compile(el)($rootScope);
+
+                $rootScope.$apply();
+                expect(el.attr('alt')).toEqual('');
+
+                $rootScope.myAltText = 'My favourite photo';
+                $rootScope.$apply();
+                expect(el.attr('alt')).toEqual('My favourite photo');
+            });
+        });
+
+        it('fires observers on attribute expression changes', function() {
+            var observerSpy = jasmine.createSpy();
+            var injector = makeInjectorWithDirectives({
+                myDirective: function() {
+                    return {
+                        link: function(scope, element, attrs) {
+                            attrs.$observe('alt', observerSpy);
+                        }
+                    };
+                }
+            });
+            injector.invoke(function($compile, $rootScope) {
+                var el = $('<img alt="{{myAltText}}" my-directive>');
+                $compile(el)($rootScope);
+
+                $rootScope.myAltText = 'My favourite photo';
+                $rootScope.$apply();
+                expect(observerSpy.calls.mostRecent().args[0]).toEqual('My favourite photo');
+            });
+        });
+
+        it('fires observers just once upon registration', function() {
+            var observerSpy = jasmine.createSpy();
+            var injector = makeInjectorWithDirectives({
+                myDirective: function() {
+                    return {
+                        link: function(scope, element, attrs) {
+                            attrs.$observe('alt', observerSpy);
+                        }
+                    };
+                }
+            });
+            injector.invoke(function($compile, $rootScope) {
+                var el = $('<img alt="{{myAltText}}" my-directive>');
+                $compile(el)($rootScope);
+                $rootScope.$apply();
+
+                expect(observerSpy.calls.count()).toBe(1);
+            });
+        });
+
+        it('is done for attributes by the time other directive is linked', function() {
+            var gotMyAttr;
+            var injector = makeInjectorWithDirectives({
+                myDirective: function() {
+                    return {
+                        link: function(scope, element, attrs) {
+                            gotMyAttr = attrs.myAttr;
+                        }
+                    };
+                }
+            });
+            injector.invoke(function($compile, $rootScope) {
+                var el = $('<div my-directive my-attr="{{myExpr}}"></div>');
+                $rootScope.myExpr = 'Hello';
+                $compile(el)($rootScope);
+
+                expect(gotMyAttr).toEqual('Hello');
+            });
+        });
+
+        it('is done for attributes by the time bound to iso scope', function() {
+            var gotMyAttr;
+            var injector = makeInjectorWithDirectives({
+                myDirective: function() {
+                    return {
+                        scope: {myAttr: '@'},
+                        link: function(scope, element, attrs) {
+                            gotMyAttr = scope.myAttr;
+                        }
+                    };
+                }
+            });
+            injector.invoke(function($compile, $rootScope) {
+                var el = $('<div my-directive my-attr="{{myExpr}}"></div>');
+                $rootScope.myExpr = 'Hello';
+                $compile(el)($rootScope);
+
+                expect(gotMyAttr).toEqual('Hello');
+            });
+        });
+
+        it('is done for attributes so that changes during compile are reflected', function() {
+            var injector = makeInjectorWithDirectives({
+                myDirective: function() {
+                    return {
+                        compile: function(element, attrs) {
+                            attrs.$set('myAttr', '{{myDifferentExpr}}');
+                        }
+                    };
+                }
+            });
+            injector.invoke(function($compile, $rootScope) {
+                var el = $('<div my-directive my-attr="{{myExpr}}"></div>');
+                $rootScope.myExpr = 'Hello';
+                $rootScope.myDifferentExpr = 'Other Hello';
+                $compile(el)($rootScope);
+                $rootScope.$apply();
+
+                expect(el.attr('my-attr')).toEqual('Other Hello');
+            });
+        });
+
+        it('is done for attributes so that removal during compile is reflected', function() {
+            var injector = makeInjectorWithDirectives({
+                myDirective: function() {
+                    return {
+                        compile: function(element, attrs) {
+                            attrs.$set('myAttr', null);
+                        }
+                    };
+                }
+            });
+            injector.invoke(function($compile, $rootScope) {
+                var el = $('<div my-directive my-attr="{{myExpr}}"></div>');
+                $rootScope.myExpr = 'Hello';
+                $compile(el)($rootScope);
+                $rootScope.$apply();
+
+                expect(el.attr('my-attr')).toBeFalsy();
+            });
+        });
+
+        it('cannot be done for event handler attributes', function() {
+            var injector = makeInjectorWithDirectives({});
+            injector.invoke(function($compile, $rootScope) {
+                $rootScope.myFunction = function() { };
+                var el = $('<button onclick="{{myFunction()}}"></button>');
+                expect(function() {
+                    $compile(el)($rootScope);
+                }).toThrow();
+            });
+        });
+
+        it('denormalizes directive templates', function() {
+            var injector = createInjector(['ng', function($interpolateProvider, $compileProvider) {
+                $interpolateProvider.startSymbol('[[').endSymbol(']]');
+                $compileProvider.directive('myDirective', function() {
+                    return {
+                        template: 'Value is {{myExpr}}'
+                    };
+                });
+            }]);
+            injector.invoke(function($compile, $rootScope) {
+                var el = $('<div my-directive></div>');
+                $rootScope.myExpr = 42;
+                $compile(el)($rootScope);
+                $rootScope.$apply();
+
+                expect(el.html()).toEqual('Value is 42');
+            });
+        });
+
+    });
+
 });

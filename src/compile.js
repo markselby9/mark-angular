@@ -105,7 +105,14 @@ function $CompileProvider($provide) {
         }
     };
 
-    this.$get = ['$injector', '$parse', '$rootScope', '$controller', '$http', function ($injector, $parse, $rootScope, $controller, $http) {
+    this.$get = ['$injector', '$parse', '$rootScope', '$controller', '$http', '$interpolate', function ($injector, $parse, $rootScope, $controller, $http, $interpolate) {
+        var startSymbol = $interpolate.startSymbol();
+        var endSymbol = $interpolate.endSymbol();
+        var denormalizeTemplate = (startSymbol === '{{' && endSymbol === '}}') ?
+            _.identity : function (template) {
+            return template.replace(/\{\{/g, startSymbol).replace(/\}\}/g, endSymbol);
+        };
+
         function compile($compileNodes, maxPriority) {
             var compositeLinkFn = compileNodes($compileNodes, maxPriority);
 
@@ -126,8 +133,8 @@ function $CompileProvider($provide) {
                     $linkNodes = $compileNodes;
                 }
 
-                _.forEach(transcludeControllers, function(controller, name){
-                    $linkNodes.data('$'+name+'Controller', controller.instance);
+                _.forEach(transcludeControllers, function (controller, name) {
+                    $linkNodes.data('$' + name + 'Controller', controller.instance);
                 });
 
                 $linkNodes.data('$scope', scope);
@@ -180,7 +187,9 @@ function $CompileProvider($provide) {
             this.$$observers[key] = this.$$observers[key] || [];
             this.$$observers[key].push(fn);
             $rootScope.$evalAsync(function () {
-                fn(self[key]);
+                if (!self.$$observers[key].$$inter) {    // skip interpolated attribute
+                    fn(self[key]);
+                }
             });
             //return a deregistration function
             return function () {
@@ -260,7 +269,7 @@ function $CompileProvider($provide) {
 
                         var boundTranscludeFn;  // bound transclusion function
                         if (linkFnObj.nodeLinkFn.transcludeOnThisElement) {
-                            boundTranscludeFn = function (transcludedScope, cloneAttachFn, transcludeControllers,containingScope) {
+                            boundTranscludeFn = function (transcludedScope, cloneAttachFn, transcludeControllers, containingScope) {
                                 if (!transcludedScope) {
                                     transcludedScope = scope.$new(false, containingScope);
                                 }
@@ -430,7 +439,7 @@ function $CompileProvider($provide) {
                     if (directive.transclude === 'element') {
                         hasElementTranscludeDirective = true;
                         var $originalCompileNode = $compileNode;
-                        $compileNode = attrs.$$element = $(document.createComment(' ' + directive.name + ': ' + attrs[directive.name]));
+                        $compileNode = attrs.$$element = $(document.createComment(' ' + directive.name + ': ' + attrs[directive.name] + ' '));
                         $originalCompileNode.replaceWith($compileNode);
 
                         terminalPriority = directive.priority;
@@ -447,10 +456,12 @@ function $CompileProvider($provide) {
                         throw 'multiple directives asking for template';
                     }
                     templateDirective = directive;
-                    $compileNode.html(
-                        _.isFunction(directive.template) ? directive.template($compileNode, attrs) :
-                            directive.template
-                    );
+
+                    // run all directive templates through denormalizeTemplate
+                    var template = _.isFunction(directive.template) ?
+                        directive.template($compileNode, attrs) : directive.template;
+                    template = denormalizeTemplate(template);
+                    $compileNode.html(template);
                 }
 
                 if (directive.terminal) {
@@ -484,6 +495,7 @@ function $CompileProvider($provide) {
                 $compileNode.empty();
                 var afterTemplateNodeLinkFn, afterTemplateChildLinkFn;
                 $http.get(templateUrl).success(function (template) {
+                    template = denormalizeTemplate(template);
                     directives.unshift(derivedSyncDirective); // replace the directive with null templateUrl
                     $compileNode.html(template);
                     afterTemplateNodeLinkFn = applyDirectivesToNode(directives, $compileNode, attrs, previousCompileContext);
@@ -562,8 +574,8 @@ function $CompileProvider($provide) {
                         cloneAttachFn = transcludedScope;
                         transcludedScope = undefined;
                     }
-                    if (hasElementTranscludeDirective){
-                        transcludeControllers =controllers;
+                    if (hasElementTranscludeDirective) {
+                        transcludeControllers = controllers;
                     }
                     return boundTranscludeFn(transcludedScope, cloneAttachFn, transcludeControllers, scope);
                 }
@@ -612,7 +624,7 @@ function $CompileProvider($provide) {
                             destination[scopeName] = newAttrValue;
                         });
                         if (attrs[attrName]) {
-                            destination[scopeName] = attrs[attrName];
+                            destination[scopeName] = $interpolate(attrs[attrName])(scope);
                         }
                         break;
                     case '=':   //bi-directional data binding
@@ -725,6 +737,8 @@ function $CompileProvider($provide) {
                         }
                     }
                     normalizedAttrName = directiveNormalize(name.toLowerCase());
+
+                    addAttrInterpolateDirective(directives, attribute.value, normalizedAttrName);
                     addDirective(directives, normalizedAttrName, 'A', maxPriority, attributeStartName, attributeEndName);
 
                     if (isNgAttr || !attrs.hasOwnProperty(normalizedAttrName)) {
@@ -756,10 +770,74 @@ function $CompileProvider($provide) {
                         attrs[normalizedName] = match[2] ? match[2].trim() : undefined;
                     }
                 }
+            } else if (node.nodeType === Node.TEXT_NODE) {
+                //generate a directive and execute interpolation logic
+                addTextInterpolateDirective(directives, node.nodeValue);
             }
 
             directives.sort(byPriority);
             return directives;
+        }
+
+        // generate a directive and execute interpolation logic
+        function addTextInterpolateDirective(directives, text) {
+            var interpolateFn = $interpolate(text, true);
+            if (interpolateFn) {
+                // generate the directive to interpolate
+                directives.push({
+                    priority: 0,
+                    compile: function () {
+                        return function link(scope, element) {
+                            element.parent().addClass('ng-binding');
+                            var bindings = element.parent().data('$binding') || [];
+                            bindings = bindings.concat(interpolateFn.expressions);
+                            element.parent().data('$binding', bindings);
+                            // use interpolation function as watch function directly
+                            scope.$watch(interpolateFn, function (newValue) {
+                                element[0].nodeValue = newValue;
+                            });
+                        };
+                    }
+                });
+            }
+        }
+
+        // similar to text node interpolation
+        function addAttrInterpolateDirective(directives, value, name) {
+            var interpolateFn = $interpolate(value, true);
+            if (interpolateFn) {
+                directives.push({
+                    priority: 100,   // make it compiled before most directives
+                    compile: function () {
+                        return {
+                            pre: function link(scope, element, attrs) {
+                                // not allowing ng- event handlers do interpolation
+                                if (/(on[a-z]+|formaction)$/.test(name)) {
+                                    throw 'Interpolations for HTML DOM event attributes not allowed';
+                                }
+
+                                var newValue = attrs[name];
+                                if (newValue !== value) {
+                                    // regenerate the interpolation function if attr value has changed since compilation
+                                    interpolateFn = newValue && $interpolate(newValue, true);
+                                }
+                                if (!interpolateFn) {
+                                    return; // if no value at all, exit early from link function
+                                }
+
+                                attrs.$$observers = attrs.$$observers || {};
+                                attrs.$$observers[name] = attrs.$$observers[name] || [];
+                                attrs.$$observers[name].$$inter = true; // set inter flag
+                                attrs[name] = interpolateFn(scope);
+
+                                scope.$watch(interpolateFn, function (newValue) {
+                                    attrs.$set(name, newValue);
+                                });
+                            }
+                        };
+                    }
+                });
+            }
         }
 
         // checks whether the attribute is standard boolean name, or element name is where boolean attributes are used
