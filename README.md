@@ -1,18 +1,17 @@
 #mark-angular
 
-这是我根据《Build your own angularJS》从零开始搭建AngularJS框架的project，包括了代码和我的相关笔记（在NOTEBOOK文件夹中）。
+这是我根据《Build your own angularJS》从零开始搭建AngularJS框架的project,包括了代码和我的相关笔记（在NOTEBOOK文件夹中）.  
+使用Browserify得到的production bundle和minified bundle在根目录下,可以直接使用,用mark-angular编写的小应用在"sample application"文件夹里,使用浏览器可以直接运行.
 
 ###相关笔记目录：
 
-[Part1: Scope](https://github.com/markselby9/mark-angular/blob/master/my%20related%20notes/%E3%80%8ABuild%20your%20own%20angularJS%E3%80%8BPart%201-%20Scope.pdf)  
-Part2: Expressions and filters:
-[1](https://github.com/markselby9/mark-angular/blob/master/my%20related%20notes/%E3%80%8ABuild%20your%20own%20angularJS%E3%80%8BPart%202-1--Expressions%20And%20Filters.pdf)
-[2](https://github.com/markselby9/mark-angular/blob/master/my%20related%20notes/%E3%80%8ABuild%20your%20own%20angularJS%E3%80%8BPart%202-2--Expressions%20And%20Filters.pdf)
-[3](https://github.com/markselby9/mark-angular/blob/master/my%20related%20notes/%E3%80%8ABuild%20your%20own%20angularJS%E3%80%8BPart%202-3-%EF%BC%9AExpressions%20and%20Watches.pdf)  
-[Part3: Modules And Dependency Injection](https://github.com/markselby9/mark-angular/blob/master/my%20related%20notes/%E3%80%8ABuild%20your%20own%20angularJS%E3%80%8BPart%203.pdf)  
-[Part4: Utilities](https://github.com/markselby9/mark-angular/blob/master/my%20related%20notes/%E3%80%8ABuild%20your%20own%20angularJS%E3%80%8BPart%204-%20Utilities.pdf)  
-Part5: Directives:
-[1](https://github.com/markselby9/mark-angular/blob/master/my%20related%20notes/%E3%80%8ABuild%20your%20own%20angularJS%E3%80%8BPart%205%EF%BC%881%EF%BC%89-%20%C2%A0Directives.pdf)
+###Production bundles
+
+"markangular.js" built by Browserify, "markangular.min.js" minified by UglifyJS.
+
+###Sample application
+
+In "sample application" folder, run the html page in browser directly.
 
 ###Introduction：
 
