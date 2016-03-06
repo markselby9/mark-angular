@@ -4,7 +4,7 @@
 使用Browserify得到的production bundle和minified bundle在根目录下,可以直接使用,用mark-angular编写的小应用在"sample application"文件夹里,使用浏览器可以直接运行.
 
 ###笔记目录：
-[Some summary (written by hand)](https://github.com/markselby9/mark-angular/blob/master/NOTEBOOK/summary.pdf)
+<!--[Some summary (written by hand)](https://github.com/markselby9/mark-angular/blob/master/NOTEBOOK/summary.pdf)-->
 
 [Part 1: Scopes](https://github.com/markselby9/mark-angular/blob/master/NOTEBOOK/Part%201-%20Scope.pdf)
 
